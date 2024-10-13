@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../Service/auth.service';
@@ -13,13 +14,13 @@ import { CommonModule } from '@angular/common';
 export class SinupComponent {
   signupForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private authService: AuthService,private _ToastrService:ToastrService) {
     this.signupForm = this.fb.group({
-      name: ['', Validators.required ,Validators.pattern(/^[A-Z][a-z]/)],
+      name: ['',[ Validators.required ,Validators.pattern(/^[A-Z][a-z]/)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/)]],
-      rePassword: ['', Validators.required,Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/)],
-      phone: ['', Validators.required,Validators.pattern(/^01[0125][0-9]{8}$/)],
+      rePassword: ['', [Validators.required,Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/)]],
+      phone: ['',[ Validators.required,Validators.pattern(/^01[0125][0-9]{8}$/)]],
     },{ validators:this.RePassword});
   }
   RePassword(signupForm: any) { 
@@ -37,16 +38,18 @@ export class SinupComponent {
     }
   }
 
-  onSubmit() {
-    if (this.signupForm.valid) {
-      this.authService.signup(this.signupForm.value).subscribe(
-        (response) => {
+  onSubmit( signupForm:FormGroup) {
+    if (signupForm.valid) {
+      this.authService.signup(signupForm.value).subscribe({
+        next: (response) => {
+          this._ToastrService.success("Signup successful");
           console.log('Signup successful', response);
         },
-        (error) => {
-          console.error('Signup error', error);
-        },
-      );
+        error: (err) => {
+          this._ToastrService.error(err.message || 'Signup error');
+          console.error('Signup error', err);
+        }
+      })
     }
-  }
-}
+  }}
+

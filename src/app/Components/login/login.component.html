@@ -11,9 +11,9 @@
                             <input id="email" formControlName="email" class="form-control" type="email" />
                             
                             <div class="" *ngIf="loginForm.get('email')?.errors &&loginForm.get('email')?.touched ">
-                                <small *ngIf="loginForm.get('email')?.getError('email')"class='text-danger'>  enter avalid email</small>
+                                <small *ngIf="loginForm.get('email')?.getError('email')"class='text-danger'> "Please enter a valid email address."</small>
                                
-                                <small *ngIf="loginForm.get('email')?.getError('required')"class='text-danger'> email is required</small>
+                                <small *ngIf="loginForm.get('email')?.getError('required')"class='text-danger'> "Email is required"</small>
                     
                             </div>
                         </div>

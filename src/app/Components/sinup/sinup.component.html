@@ -3,12 +3,12 @@
         <div class="col-md-8 m-auto">
             <div class="card p-4 shadow">
                 <h2 class="text-center">Sign Up</h2>
-                <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm)">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input id="name" formControlName="name" class="form-control" type="text" />
                         <div class="" *ngIf="signupForm.get('name')?.errors &&signupForm.get('name')?.touched ">
-                            <p *ngIf="signupForm.get('name')?.getError('pattern')"class='text-danger'>Username  must start uppercase letter</p>
+                            <p *ngIf="signupForm.get('name')?.getError('pattern')"class='text-danger'>"Username must start with a capital letter."</p>
                             <p *ngIf="signupForm.get('name')?.getError('required')"class='text-danger'> Name is required</p>
                 
                         </div>
@@ -17,7 +17,7 @@
                         <label for="email" class="form-label">Email</label>
                         <input id="email" formControlName="email" class="form-control" type="email" />
                         <div class="" *ngIf="signupForm.get('email')?.errors &&signupForm.get('email')?.touched ">
-                            <p *ngIf="signupForm.get('email')?.getError('email')"class='text-danger'>  Please enter a valid email</p>
+                            <p *ngIf="signupForm.get('email')?.getError('email')"class='text-danger'>  "Please enter a valid email address."</p>
                            
                             <p *ngIf="signupForm.get('email')?.getError('required')"class='text-danger'> email is required</p>
                 
@@ -48,8 +48,8 @@
                        
                         <input type="tel" class="form-control mb-2" formControlName="phone" id="phone"  >
                         <div class="" *ngIf="signupForm.get('phone')?.errors &&signupForm.get('phone')?.touched ">
-                            <p *ngIf="signupForm.get('phone')?.getError('pattern')"class='text-danger'> phone must start 01</p>
-                            <p *ngIf="signupForm.get('phone')?.getError('required')"class='text-danger'> phone is required</p>
+                            <p *ngIf="signupForm.get('phone')?.getError('pattern')"class='text-danger'> "Please enter a number that is available."</p>
+                            <p *ngIf="signupForm.get('phone')?.getError('required')"class='text-danger'> Phone is required</p>
                         </div>
                     </div>
                     <div class="text-end">

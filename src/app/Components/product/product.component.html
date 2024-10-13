@@ -17,7 +17,7 @@
                         <p>{{product.price|currency:'EUR'}}</p>
                     </div>
                    
-                    <div class="position-absolute top-0 end-0"[ngClass]="product.ratingsAverage>4.3?'bg-danger':'bg-main'" >
+                    <div class="position-absolute top-0 end-0"[ngClass]="product.ratingsAverage>4.3?'bg-main':'bg-danger'" >
                       
                             <span class="text-muted fw-bold font-sm">{{product.ratingsAverage}} </span>    
                             <i class="fas fa-star text-warning"></i>

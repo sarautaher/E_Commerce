@@ -1,27 +1,23 @@
-
-
-
 <div class="">
-    <div class="container">
-        <div class="row">
-<div class="col-md-8 m-auto p-5">
-<div class="row gx-0">
-    <div class="col-8 " >
-        <owl-carousel-o [options]="customOptions">
-            <ng-container *ngFor="let slide of  slides" class="mx-0">
-              <ng-template carouselSlide >
-                <img [src]="slide"  height="400">
-              </ng-template>
-            </ng-container>
-          </owl-carousel-o>
- 
-    </div>
-    <div class="col-4  " >
-<img class="w-100" height="200" src="../../../assets/img/3.jpeg">
-<img class="w-100" height="200" src="../../../assets/img/2.jpeg">
-    </div>
-</div>
-</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 m-auto p-5">
+        <div class="row gx-0">
+          <div class="col-8 ">
+            <owl-carousel-o [options]="customOptions">
+              <ng-container *ngFor="let slide of  slides" class="mx-0">
+                <ng-template carouselSlide>
+                  <img [src]="slide" height="400">
+                </ng-template>
+              </ng-container>
+            </owl-carousel-o>
+          </div>
+          <div class="col-4  ">
+            <img class="w-100" height="200" src="../../../assets/img/3.jpeg">
+            <img class="w-100" height="200" src="../../../assets/img/2.jpeg">
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>

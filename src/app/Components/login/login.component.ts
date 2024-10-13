@@ -34,7 +34,7 @@ export class LoginComponent {
           this.isLoad=true;
 localStorage.setItem("userToken",resposne.token)
 this._AuthService.decodeUserDate()
-          this._ToastrService.success('Welcome! We `re thrilled to have you here.')
+          this._ToastrService.success('Hello and welcome! Enjoy your shopping experience')
           this._Router.navigate(['/home'])
         }},
         (error) => {
