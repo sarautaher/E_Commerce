@@ -1,0 +1,43 @@
+<div class="py-5">
+    <div class="container">
+        <form (ngSubmit)="CheckoutPayment()" [formGroup]="User" class="form">
+            <h1 class="mb-4">Payment Form</h1>
+            <div class="row  ">
+                <div class="col-8 m-auto">
+
+                    <div class=" card p-4 shadow ">
+                        <div class="mb-4">
+                            <label for="details">Details:</label>
+                            <input type="text" class="form-control" formControlName="details">
+                            <div *ngIf="User.get('details')?.errors&&User.get('details')?.touched" class="text-danger">
+                                <p *ngIf="User.get('details')?.getError('required')"> Details must required</p>
+
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="city">City:</label>
+                            <input type="text" class="form-control" formControlName="city">
+                            <div *ngIf="User.get('city')?.errors&&User.get('city')?.touched"  class="text-danger">
+                                <p *ngIf="User.get('city')?.getError('required')"> city must required</p>
+
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="phone">Phone:</label>
+                            <input class="form-control" type="tel" formControlName="phone">
+                            <div *ngIf="User.get('phone')?.errors&&User.get('phone')?.touched"  class="text-danger">
+                                <p *ngIf="User.get('phone')?.getError('required')"> Phone must required</p>
+
+                            </div>
+                        </div>
+                        <div class="mb-4  text-end my-2">
+                            <button type="submit" class="btn btn-outline-success" [disabled]="User.invalid">Submit<span
+                                    *ngIf="isLoad"><i class='fa-solid bg-main m-2  fa-spinner fa-spin'></i></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

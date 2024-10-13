@@ -1,0 +1,42 @@
+<div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-8 m-auto">
+                <div class="card p-4 shadow ">
+
+                    <h2 class="text-center">Login</h2>
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input id="email" formControlName="email" class="form-control" type="email" />
+                            
+                            <div class="" *ngIf="loginForm.get('email')?.errors &&loginForm.get('email')?.touched ">
+                                <small *ngIf="loginForm.get('email')?.getError('email')"class='text-danger'>  enter avalid email</small>
+                               
+                                <small *ngIf="loginForm.get('email')?.getError('required')"class='text-danger'> email is required</small>
+                    
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input id="password" formControlName="password" class="form-control" type="password" />
+                            <div class="" *ngIf="loginForm.get('password')?.errors &&loginForm.get('password')?.touched ">
+                            <small *ngIf="loginForm.get('password')?.getError('pattern')"class='text-danger'>Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.</small>
+                                <small *ngIf="loginForm.get('password')?.getError('required')"class='text-danger'> password is required</small>
+                            </div>
+                        </div>
+                        <div class="text-end">
+
+                            <button type="submit" class="btn btn-outline-success text-start"> <span *ngIf="isLoad"><i class='fa-solid text-success m-2  fa-spinner fa-spin'></i></span>Login</button>
+                        </div>
+                    </form>
+                    <div class="d-flex justify-content-between py-2">
+                        <button [routerLink]="['/sinup']" routerLinkActive="router-link-active" class=" btn btn-outline-success">Register</button>
+                        <button [routerLink]="['/ForgetPassword']" routerLinkActive="router-link-active" class=" btn btn-outline-success">ForgetPassword</button>
+                  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

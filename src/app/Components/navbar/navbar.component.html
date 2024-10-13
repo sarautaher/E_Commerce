@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg bg-white">
+    <div class="container">
+      <a class="navbar-brand" routerLink="home" ><img src="../../../assets/img/2.png" width="60px" height="60px" class="rounded-circle">
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       
+          <li class="nav-item ">
+            <a class="nav-link" routerLink="Product" *ngIf="!isload">Product </a>
+        </li>
+        </ul>
+        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+            
+            <li  class="nav-item d-flex align-items-center text-main"*ngIf="!isload">
+                
+                <i class='fa-brands fa-facebook mx-3'></i>
+              <i class='fa-brands fa-twitter mx-3'></i>
+                  <i class='fa-brands fa-instagram mx-3'></i>
+            <i class='fa-brands fa-linkedin mx-3'></i>
+    </li>
+    <li  class="nav-item mx-2 ">
+        <a class="nav-link position-relative text-main" routerLink="cart" *ngIf="!isload"><i class='fa-solid fa-cart-shopping  fa-lg '> </i>
+
+            <span class="badge bg-main  position-absolute">{{cartId}} </span>
+         </a>
+    </li>
+            <li  class="nav-item active">
+                <a class="nav-link" routerLink="login" *ngIf="isload">login </a>
+            </li>
+            <li  class="nav-item ">
+                <a class="nav-link" routerLink="sinup" *ngIf="isload">register </a>
+            </li>
+            <li  class="nav-item ">
+                <a class="nav-link"  *ngIf="!isload"  (click)="logOut()">Logout</a>
+            </li>
+           
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+

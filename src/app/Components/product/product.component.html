@@ -1,0 +1,36 @@
+<div *ngIf="!isLoading"><app-loader  > </app-loader></div>
+<div>
+    <div class="container">
+        <div class="row gy-3">
+            <div class="col-md-12" >
+                <input type="text" [(ngModel)]="term"  class="form-control w-50 mx-auto" placeholder="search by title ........">
+              </div>
+            <div *ngFor=" let product of products?.data| search :term" #product class="col-md-3 position-relative ">
+                <div class=" card p-3 text-center h-100">
+        
+                  <a [routerLink]="['/productdetails', product?._id]" class="nav-link">     
+                    <div class="card-img">
+                    <img class="w-100" src={{product.imageCover}} alt=""></div>
+                    <span class="card-title">{{product.category.name}}</span>
+                    <div class="d-flex justify-content-between">
+                        <h6 class="'card-desc'">{{product.title.split(" ").splice(0,2).join(" ")|uppercase}}</h6>
+                        <p>{{product.price|currency:'EUR'}}</p>
+                    </div>
+                   
+                    <div class="position-absolute top-0 end-0"[ngClass]="product.ratingsAverage>4.3?'bg-danger':'bg-main'" >
+                      
+                            <span class="text-muted fw-bold font-sm">{{product.ratingsAverage}} </span>    
+                            <i class="fas fa-star text-warning"></i>
+                        
+                    </div>
+                  
+                </a>   
+                <button class='w-100 btn border-none border-0 text-main '[ngClass]="isloadcart?'d-none':'d-flex'" (click)="addToCart(product._id)" id="btn" >
+                    Add To cart  <i class='fa-solid fa-cart-shopping text-main my-auto '> </i></button>
+                </div>
+            </div>
+        
+        </div>
+
+    </div>
+</div>
