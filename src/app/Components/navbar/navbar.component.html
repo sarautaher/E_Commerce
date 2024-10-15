@@ -11,17 +11,17 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
        
           <li class="nav-item ">
-            <a class="nav-link" routerLink="Product" *ngIf="!isload">Product </a>
+            <a class="nav-link link-color" routerLink="Product" *ngIf="!isload">Product </a>
         </li>
         </ul>
         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
             
             <li  class="nav-item d-flex align-items-center text-main"*ngIf="!isload">
                 
-               <a href="https://www.facebook.com/" class="nav-link"> <i class='fa-brands fa-facebook mx-3'></i></a> 
-             <a href="https://x.com/?lang=ar" class="nav-link"><i class='fa-brands fa-twitter mx-3'></i></a>
-                <a href="https://www.instagram.com/"class="nav-link">  <i class='fa-brands fa-instagram mx-3'></i></a>
-           <a href="https://www.linkedin.com/" class="nav-link"> <i class='fa-brands fa-linkedin mx-3'></i></a>
+               <a href="https://www.facebook.com/" class="nav-link link-color"> <i class='fa-brands fa-facebook mx-3'></i></a> 
+             <a href="https://x.com/?lang=ar" class="nav-link link-color"><i class='fa-brands fa-twitter mx-3'></i></a>
+                <a href="https://www.instagram.com/"class="nav-link link-color">  <i class='fa-brands fa-instagram mx-3'></i></a>
+           <a href="https://www.linkedin.com/" class="nav-link link-color"> <i class='fa-brands fa-linkedin mx-3'></i></a>
     </li>
     <li  class="nav-item mx-2 ">
         <a class="nav-link position-relative text-main" routerLink="cart" *ngIf="!isload"><i class='fa-solid fa-cart-shopping  fa-lg '> </i>
@@ -30,13 +30,13 @@
          </a>
     </li>
             <li  class="nav-item active">
-                <a class="nav-link" routerLink="login" *ngIf="isload">login </a>
+                <a class="nav-link link-color" routerLink="login" *ngIf="isload">login </a>
             </li>
             <li  class="nav-item ">
-                <a class="nav-link" routerLink="sinup" *ngIf="isload">register </a>
+                <a class="nav-link link-color" routerLink="sinup" *ngIf="isload">register </a>
             </li>
             <li  class="nav-item ">
-                <a class="nav-link"  *ngIf="!isload"  (click)="logOut()">Logout</a>
+                <a class="nav-link link-color"  *ngIf="!isload"  (click)="logOut()">Logout</a>
             </li>
            
         </ul>

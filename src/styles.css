@@ -12,10 +12,10 @@
     transition: transform 0.5s;
    
 }
-.nav-link{
+.link-color{
     transition: color 0.2s;
 }
-.nav-link:hover{
+.link-color:hover{
     color: rgb(8, 186, 20); 
 }
 .product:hover{
