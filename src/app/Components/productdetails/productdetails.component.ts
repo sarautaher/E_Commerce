@@ -37,7 +37,7 @@ export class ProductdetailsComponent implements OnInit {
       next:(res)=>{
         this. isLoading = true;
         this.productDetails=res
-        console.log(res)
+        
       }
     })
 
@@ -45,15 +45,12 @@ export class ProductdetailsComponent implements OnInit {
   addToCart(productId:string){
     this._CartService.addToCart(productId).subscribe({
       next:(res)=> {
-        console.log(res)
-     
-
           this._CartService.setcartNumber.next(res.numOfCartItems);
 this._ToastrService.success('"Excellent choice! Add it to your cart now')
    
       }
       ,error:(err)=>{
-this._ToastrService.error(err)
+this._ToastrService.error(err.error.message) 
       }
     })
   }
