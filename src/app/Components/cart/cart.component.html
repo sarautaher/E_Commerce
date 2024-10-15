@@ -1,5 +1,5 @@
 <div *ngIf="!isLoading"><app-loader  > </app-loader></div>
-<div class="py-2">
+<div class="py-4">
     <div class="container">
         <h2>Shopping Cart</h2>
         <p>ToTal price:<span>{{cart?.data?.totalCartPrice}}</span></p>
@@ -9,9 +9,9 @@
         <img [src]="product?.product?.imageCover" class="w-100">
             </div>
             <div class="col-md-10">
+                <h3>{{product.product.title}}</h3>
                 <div class="d-flex justify-content-between align-items-center">
                     <div >
-                    <h3>{{product.product.title}}</h3>
                     <p> {{product.price}}</p>
                     <button class="btn btn-outline-danger"(click)="DeleteCart(product.product._id)" >
                         <i class='fa-regular fa-trash-can'></i>Remove</button>

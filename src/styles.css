@@ -1,10 +1,67 @@
 /* You can add global styles to this file, and also import other style files */
 .bg-main{
-    background-color: green;
+    background-color: rgb(8, 186, 20);;
 }
 .text-main{
-    color: green;
+    color: rgb(8, 186, 20);
 }
 .bg-susse{
     color: yellow;
+}
+.product{
+    transition: transform 0.5s;
+   
+}
+.nav-link{
+    transition: color 0.2s;
+}
+.nav-link:hover{
+    color: rgb(8, 186, 20); 
+}
+.product:hover{
+    transform: scale(1.05);
+    box-shadow: rgb(8, 186, 20) 5px 3px;
+}
+.ecommerce::after{
+    color: rgb(8, 186, 20);
+    content: "";
+    animation-name:move ;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 5s; 
+}
+@keyframes move {
+0%{
+content: "E";
+} 
+10%{
+    content: "E-";
+}  
+20%{
+    content: "E-c";
+}  
+30%{
+    content: "E-co";
+}  
+40%{
+    content: "E-com";
+}  
+50%{
+    content: "E-comm";
+} 
+60%{
+    content: "E-comme";
+}
+70%{
+    content: "E-commer";
+}
+80%{
+    content: "E-commerc";
+}  
+90%{
+    content: "E-commerce";
+}
+100%{
+    content: "E-commerce";
+} 
 }

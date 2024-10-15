@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-white">
     <div class="container">
-      <a class="navbar-brand" routerLink="home" ><img src="../../../assets/img/2.png" width="60px" height="60px" class="rounded-circle">
+      <a class="navbar-brand" routerLink="home" ><img src="../../../assets/img/Full Cart.jfif" width="60px" height="60px" class="rounded-circle">
+     <span class="mx-2 ecommerce" *ngIf="!isload"> </span>
       </a>
       
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,10 +18,10 @@
             
             <li  class="nav-item d-flex align-items-center text-main"*ngIf="!isload">
                 
-                <i class='fa-brands fa-facebook mx-3'></i>
-              <i class='fa-brands fa-twitter mx-3'></i>
-                  <i class='fa-brands fa-instagram mx-3'></i>
-            <i class='fa-brands fa-linkedin mx-3'></i>
+               <a href="https://www.facebook.com/" class="nav-link"> <i class='fa-brands fa-facebook mx-3'></i></a> 
+             <a href="https://x.com/?lang=ar" class="nav-link"><i class='fa-brands fa-twitter mx-3'></i></a>
+                <a href="https://www.instagram.com/"class="nav-link">  <i class='fa-brands fa-instagram mx-3'></i></a>
+           <a href="https://www.linkedin.com/" class="nav-link"> <i class='fa-brands fa-linkedin mx-3'></i></a>
     </li>
     <li  class="nav-item mx-2 ">
         <a class="nav-link position-relative text-main" routerLink="cart" *ngIf="!isload"><i class='fa-solid fa-cart-shopping  fa-lg '> </i>

@@ -51,7 +51,8 @@ Updatacart(productId:string,count:number){
       }
       else{
         this.cart=res
-        this._ToastrService.success("success at cart!")
+        console.log(res)
+        this._ToastrService.success(`success  at cart!`)
       }
     }
     ,error:(err)=>{

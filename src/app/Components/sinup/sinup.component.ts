@@ -43,11 +43,11 @@ export class SinupComponent {
       this.authService.signup(signupForm.value).subscribe({
         next: (response) => {
           this._ToastrService.success("Signup successful");
-          console.log('Signup successful', response);
+         
         },
         error: (err) => {
-          this._ToastrService.error(err.message || 'Signup error');
-          console.error('Signup error', err);
+          this._ToastrService.error(err.error.message || 'Signup error');
+        
         }
       })
     }

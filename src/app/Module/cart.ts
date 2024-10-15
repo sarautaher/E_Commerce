@@ -71,5 +71,6 @@ _id:number
     data: CartData;
     numOfCartItems: number;
     status: string;
+    count:number
   }
   
