@@ -1,13 +1,16 @@
 import { CartService } from './../../Service/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../Service/product.service';
-import { Cart, Product } from '../../Module/cart';
+
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SearchPipe } from '../../pipe/search.pipe';
 import { ToastrService } from 'ngx-toastr';
 import { LoaderComponent } from '../loader/loader.component';
+import { Cart, Product } from '../../Module/product';
+
+
 
 @Component({
   selector: 'app-product',
@@ -37,8 +40,9 @@ ngOnInit(): void {
     next:(res)=>{
       this. isLoading = true;
        this.products=res
-      
-      console.log(res)
+    }, error: (err) => {
+      this._ToastrService.error(err.error.message || 'Signup error');
+    
     }
   })
 }
@@ -46,8 +50,9 @@ addToCart(productId:string){
   this._CartService.addToCart(productId).subscribe({
     next:(res)=> {
        this._CartService.setcartNumber.next(res.numOfCartItems);
-       this._ToastrService.success('"Excellent choice! Add it to your cart now')
+       this._ToastrService.success('Excellent choice! Add it to your cart now')
       },error:(err)=>{
+      
 this._ToastrService.error(err.error.message) 
     }
   })

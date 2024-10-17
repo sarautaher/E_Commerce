@@ -34,8 +34,9 @@ this._AuthService.ForgetPassword(user.value).subscribe({
       document.getElementById('VerifyPassword')?.classList.remove('d-none')
       this.isLoad=false
     }
-  },error:(err)=>{
-    this._ToastrService.error(err.msddf)
+  }, error: (err) => {
+    this._ToastrService.error(err.error.message || 'Signup error');
+  
   }
 })
 }
@@ -48,8 +49,9 @@ VerifyPassword(user:FormGroup){
         this._ToastrService.success("open your E_mail")
         this._Router.navigate(['/ResetPassword'])
       }
-    },error:(err)=>{
-      this._ToastrService.error(err)
+    }, error: (err) => {
+      this._ToastrService.error(err.error.message || 'Signup error');
+    
     }
   })
 }

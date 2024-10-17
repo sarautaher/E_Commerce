@@ -31,8 +31,10 @@ this._AuthService.ResetPassword(user.value).subscribe({
         this._Router.navigate(['/login']);
       },200);
   }
-},error:(err)=>{
-this._ToastrService.error(err)
-}})
+}, error: (err) => {
+  this._ToastrService.error(err.error.message || 'Reset error');
+
+}
+})
 }
 }

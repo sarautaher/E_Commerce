@@ -1,34 +1,35 @@
 <div *ngIf="!isLoading"><app-loader  > </app-loader></div>
 <div>
     <div class="container">
-        <div class="row g-4">
-            <div class="col-md-12" >
-                <input type="text" [(ngModel)]="term"  class="form-control w-50 mx-auto" placeholder="search by title ........">
-              </div>
-            <div *ngFor=" let product of products?.data| search :term" #product class="col-md-3 position-relative   ">
-                <div class=" card p-3 text-center h-100 rounded-4 product">
-                    <a [routerLink]="['/productdetails', product?._id]" class="nav-link">     
-                      <div class="position-absolute top-0 end-0">
-                        
-                          <span class="text-muted fw-bold font-sm">{{product.ratingsAverage}} </span>    
-                          <i class="fas fa-star "[ngClass]="product.ratingsAverage>4.3?'text-warning':'text-danger'" ></i>
-                      
-                  </div>
+        <div class="row gy-4  " >
+      <div class="col-md-12" >
+        <input type="text"[(ngModel)]="term"  class="form-control w-50 mx-auto" placeholder="search by title ........">
+      </div>
+            <div class="col-md-3 position-relative " #product *ngFor="let Product of products?.data| search :term" id="product">
+           
+                <div class="card text-center h-100 rounded-4 product p-4 ">
+                    <a [routerLink]="['/productdetails',Product._id]" class="nav-link">
                     <div class="card-img">
-                    <img class="w-100" src={{product.imageCover}} alt="">
-                </div>
-                    <div class="py-2 ">{{product.category.name}}</div>
-                    <div class="d-flex justify-content-between ">
-                        <h6 class="card-desc ">{{product.title.split(" ").splice(0,2).join(" ")|uppercase}}</h6>
-                        <p>{{product.price|currency:'EUR'}}</p>
+                        <img src={{Product.imageCover}} class="w-100">
                     </div>
-                  
-                </a>  
-                 <button class=" btn text-main " [ngClass]="isloadcart?'d-none':'d-flex'" (click)="addToCart(product._id)"  >
-                        Add To cart  <i class='fa-solid fa-cart-shopping text-main my-auto '> </i></button>
-    
+                    <p class="card-title py-2">
+                        {{Product.category.name}}
+                    </p>
+                    <div class="d-flex justify-content-between py-2">
+                    <h6 class="'card-desc'">{{Product.title.split(" ").splice(0,2).join(" ")|uppercase}}</h6>
+                    <p>{{Product.price|currency:'EUR'}}</p>
                 </div>
+                <div class="position-absolute top-0 end-0">
+                    <span class="text-muted fw-bold font-sm">{{Product.ratingsAverage}} </span>    
+                    <i class="fas fa-star "[ngClass]="Product.ratingsAverage>4.3?'text-warning':'text-danger'" ></i> </div>
+            </a> 
+            <div class="text-end">
+
+                <button class='w-100 btn border-0  text-main ' [ngClass]="isloadcart?'d-none':'d-flex'" (click)="addToCart(Product._id)" id="btn" >
+                    Add To cart  <i class='fa-solid fa-cart-shopping text-main '> </i></button>
+            </div> 
             </div>
+        </div>
         
         </div>
 

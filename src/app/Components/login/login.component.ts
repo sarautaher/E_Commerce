@@ -28,8 +28,8 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      this.authService.login(this.loginForm.value).subscribe(
-        (resposne) => {
+      this.authService.login(this.loginForm.value).subscribe({
+       next:(resposne) => {
           if (resposne.message==='success'){
           this.isLoad=true;
 localStorage.setItem("userToken",resposne.token)
@@ -37,9 +37,10 @@ this._AuthService.decodeUserDate()
           this._ToastrService.success('Hello and welcome! Enjoy your shopping experience')
           this._Router.navigate(['/home'])
         }},
-        (error) => {
+       error: (error) => {
+          this._ToastrService.error(error.error.message )
           console.error('Login error', error);
         },
-      );
+      })
     }
 }}

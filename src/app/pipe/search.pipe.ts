@@ -1,5 +1,7 @@
-import { Product } from './../Module/cart';
+
 import { Pipe, PipeTransform } from '@angular/core';
+import { Product } from '../Module/product';
+
 
 @Pipe({
   name: 'search',
