@@ -1,4 +1,4 @@
-<div>
+<section id="login">
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-8 m-auto">
@@ -7,7 +7,7 @@
                     <h2 class="text-center">Login</h2>
                     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
+                            <label for="email" class="form-label"><i class="fa-solid fa-envelope mx-1 text-main"></i>Email</label>
                             <input id="email" formControlName="email" class="form-control" type="email" />
                             
                             <div class="" *ngIf="loginForm.get('email')?.errors &&loginForm.get('email')?.touched ">
@@ -18,7 +18,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
+                            <label for="password" class="form-label"><i class="fa-solid fa-lock mx-1 text-main"></i>Password</label>
                             <input id="password" formControlName="password" class="form-control" type="password" />
                             <div class="" *ngIf="loginForm.get('password')?.errors &&loginForm.get('password')?.touched ">
                             <small *ngIf="loginForm.get('password')?.getError('pattern')"class='text-danger'>Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.</small>
@@ -39,4 +39,4 @@
             </div>
         </div>
     </div>
-</div>
+</section>

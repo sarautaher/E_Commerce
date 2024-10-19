@@ -1,14 +1,14 @@
-<div *ngIf="!isLoading">
+<section  *ngIf="!isLoading">
     <app-loader  > </app-loader>
-</div>
-<div class="py-4">
+</section>
+<section id="cart" class="py-4">
     <div class="container">
         <h2>Shopping Cart</h2>
         <p>ToTal price:<span>{{cart?.data?.totalCartPrice}}</span></p>
         <button class="btn  btn-outline-success" [routerLink]="['/payment',cart?.cartId]" routerLinkActive="router-link-active">Onlinepayment</button>
         <div class="row gy-2 py-5" *ngFor="let product of cart?.data?.products">
             <div class="col-md-2" >
-        <img [src]="product?.product?.imageCover" class="w-100">
+        <img [src]="product?.product?.imageCover" class="w-100" [alt]="product.product.title">
             </div>
             <div class="col-md-10">
                 <h3>{{product.product.title}}</h3>
@@ -28,6 +28,6 @@
                 </div>
             </div>
         </div> 
-    </div>
+    </section>
     
 

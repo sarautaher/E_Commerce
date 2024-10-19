@@ -1,5 +1,5 @@
 <div *ngIf="!isLoading"><app-loader  > </app-loader></div>
-<div>
+<section id="product">
     <div class="container">
         <div class="row gy-4  " >
       <div class="col-md-12" >
@@ -10,7 +10,7 @@
                 <div class="card text-center h-100 rounded-4 product p-4 ">
                     <a [routerLink]="['/productdetails',Product._id]" class="nav-link">
                     <div class="card-img">
-                        <img src={{Product.imageCover}} class="w-100">
+                        <img src={{Product.imageCover}} class="w-100"[alt]="Product.category.name">
                     </div>
                     <p class="card-title py-2">
                         {{Product.category.name}}
@@ -34,4 +34,4 @@
         </div>
 
     </div>
-</div>
+</section>

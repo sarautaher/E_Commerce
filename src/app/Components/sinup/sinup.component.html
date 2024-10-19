@@ -1,64 +1,65 @@
-<div class="container mt-5">
-    <div class="row gy-3">
-        <div class="col-md-8 m-auto">
-            <div class="card p-4 shadow">
-                <h2 class="text-center">Sign Up</h2>
-                <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm)">
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
-                        <input id="name" formControlName="name" class="form-control" type="text" />
-                        <div class="" *ngIf="signupForm.get('name')?.errors &&signupForm.get('name')?.touched ">
-                            <p *ngIf="signupForm.get('name')?.getError('pattern')"class='text-danger'>"Username must start with a capital letter."</p>
-                            <p *ngIf="signupForm.get('name')?.getError('required')"class='text-danger'> Name is required</p>
-                
+<section id="signup ">
+    <div class="container mt-5">
+        <div class="row gy-3">
+            <div class="col-md-8 m-auto">
+                <div class="card p-4 shadow">
+                    <h2 class="text-center">Sign Up</h2>
+                    <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm)">
+                        <div class="mb-3">
+                            <label for="name"> <i class="fa-solid fa-user mx-1 text-main"></i> User Name</label>
+                            <input id="name" formControlName="name" class="form-control" type="text" />
+                            <div class="" *ngIf="signupForm.get('name')?.errors &&signupForm.get('name')?.touched ">
+                                <p *ngIf="signupForm.get('name')?.getError('pattern')"class='text-danger'>"Username must start with a capital letter."</p>
+                                <p *ngIf="signupForm.get('name')?.getError('required')"class='text-danger'> Name is required</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input id="email" formControlName="email" class="form-control" type="email" />
-                        <div class="" *ngIf="signupForm.get('email')?.errors &&signupForm.get('email')?.touched ">
-                            <p *ngIf="signupForm.get('email')?.getError('email')"class='text-danger'>  "Please enter a valid email address."</p>
+                        <div class="mb-3">
+                            <label for="email" class="form-label"><i class="fa-solid fa-envelope mx-1 text-main"></i>Email</label>
+                            <input id="email" formControlName="email" class="form-control" type="email" />
+                            <div class="" *ngIf="signupForm.get('email')?.errors &&signupForm.get('email')?.touched ">
+                                <p *ngIf="signupForm.get('email')?.getError('email')"class='text-danger'>  "Please enter a valid email address."</p>
+                               
+                                <p *ngIf="signupForm.get('email')?.getError('required')"class='text-danger'> email is required</p>
+                    
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label"><i class="fa-solid fa-lock mx-1 text-main"></i>Password</label>
+                            <input id="password" formControlName="password" class="form-control" type="password" />
+                            <div class="" *ngIf="signupForm.get('password')?.errors &&signupForm.get('password')?.touched ">
+                          
+                                <p *ngIf="signupForm.get('password')?.getError('pattern')"class='text-danger'>Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.</p>
+                                <p *ngIf="signupForm.get('password')?.getError('required')"class='text-danger'> password is required</p>
+                    
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="rePassword" class="form-label"><i class="fa-solid fa-lock mx-1 text-main"></i>Confirm Password</label>
+                            <input id="rePassword" formControlName="rePassword" class="form-control" type="password" />
+                            <div class="" *ngIf="signupForm.get('rePassword')?.errors &&signupForm.get('rePassword')?.touched ">
+                                <p *ngIf="signupForm.get('rePassword')?.getError('pattern')"class='text-danger'> Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.</p>
+                             <p *ngIf="signupForm.get('rePassword')?.getError('Passwordmatch')"class='text-danger'>Re-entered password does not match the password</p>
+                                <p *ngIf="signupForm.get('rePassword')?.getError('required')"class='text-danger'> rePassword is required</p>
+                    
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label"><i class="fa-solid fa-phone mx-1 text-main"></i>Phone</label>
                            
-                            <p *ngIf="signupForm.get('email')?.getError('required')"class='text-danger'> email is required</p>
-                
+                            <input type="tel" class="form-control mb-2" formControlName="phone" id="phone"  >
+                            <div class="" *ngIf="signupForm.get('phone')?.errors &&signupForm.get('phone')?.touched ">
+                                <p *ngIf="signupForm.get('phone')?.getError('pattern')"class='text-danger'> "Please enter a number that is available."</p>
+                                <p *ngIf="signupForm.get('phone')?.getError('required')"class='text-danger'> Phone is required</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input id="password" formControlName="password" class="form-control" type="password" />
-                        <div class="" *ngIf="signupForm.get('password')?.errors &&signupForm.get('password')?.touched ">
-                      
-                            <p *ngIf="signupForm.get('password')?.getError('pattern')"class='text-danger'>Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.</p>
-                            <p *ngIf="signupForm.get('password')?.getError('required')"class='text-danger'> password is required</p>
-                
+                        <div class="text-end">
+    
+                            <button type="submit" class="btn btn-outline-success">Sign Up</button>
                         </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="rePassword" class="form-label">Confirm Password</label>
-                        <input id="rePassword" formControlName="rePassword" class="form-control" type="password" />
-                        <div class="" *ngIf="signupForm.get('rePassword')?.errors &&signupForm.get('rePassword')?.touched ">
-                            <p *ngIf="signupForm.get('rePassword')?.getError('pattern')"class='text-danger'> Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.</p>
-                         <p *ngIf="signupForm.get('rePassword')?.getError('Passwordmatch')"class='text-danger'>Re-entered password does not match the password</p>
-                            <p *ngIf="signupForm.get('rePassword')?.getError('required')"class='text-danger'> rePassword is required</p>
-                
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="phone" class="form-label">Phone</label>
-                       
-                        <input type="tel" class="form-control mb-2" formControlName="phone" id="phone"  >
-                        <div class="" *ngIf="signupForm.get('phone')?.errors &&signupForm.get('phone')?.touched ">
-                            <p *ngIf="signupForm.get('phone')?.getError('pattern')"class='text-danger'> "Please enter a number that is available."</p>
-                            <p *ngIf="signupForm.get('phone')?.getError('required')"class='text-danger'> Phone is required</p>
-                        </div>
-                    </div>
-                    <div class="text-end">
-
-                        <button type="submit" class="btn btn-outline-success">Sign Up</button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
+    
         </div>
-
     </div>
-</div>
+</section>
