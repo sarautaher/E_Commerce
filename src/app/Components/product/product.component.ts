@@ -47,13 +47,13 @@ ngOnInit(): void {
   })
 }
 addToCart(productId:string){
+  console.log(productId)
   this._CartService.addToCart(productId).subscribe({
     next:(res)=> {
        this._CartService.setcartNumber.next(res.numOfCartItems);
        this._ToastrService.success('Excellent choice! Add it to your cart now')
-      },error:(err)=>{
-      
-this._ToastrService.error(err.error.message) 
+      },error:(err)=>{    
+this._ToastrService.error(err.message) 
     }
   })
 }
