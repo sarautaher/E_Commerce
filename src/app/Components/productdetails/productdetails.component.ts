@@ -53,7 +53,7 @@ export class ProductdetailsComponent implements OnInit {
         this._CartService.setcartNumber.next(res.numOfCartItems);
         this._ToastrService.success('Excellent choice! Add it to your cart now');
          },error: (err) => {
-        this._ToastrService.error(err.message || 'add error');
+        this._ToastrService.error(err.error.message || 'add error');
       },
     });
   }
